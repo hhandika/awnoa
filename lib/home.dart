@@ -36,6 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
           selectedIndex: 0,
           destinations: const [
             NavigationDestination(
+              selectedIcon: Icon(Icons.home_rounded),
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            NavigationDestination(
               selectedIcon: Icon(Icons.search_rounded),
               icon: Icon(Icons.search_outlined),
               label: 'Explore',
@@ -73,6 +78,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           builder: (context) => const HomeScreen()));
                   break;
                 case 3:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                  break;
+                case 4:
                   Navigator.push(
                       context,
                       MaterialPageRoute(
