@@ -1,3 +1,4 @@
+import 'package:awnoa/screens/explore.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                          builder: (context) => const ExploreScreen()));
                   break;
                 case 2:
                   Navigator.push(
