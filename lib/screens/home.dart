@@ -9,25 +9,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool isListView = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text('AWNOA Species ID'),
-          actions: [
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  isListView = !isListView;
-                });
-              },
-              icon: isListView
-                  ? const Icon(Icons.list_alt_rounded)
-                  : const Icon(Icons.grid_view_rounded),
-            ),
-          ],
           automaticallyImplyLeading: false,
         ),
         body: const Center(
