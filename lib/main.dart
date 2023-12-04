@@ -10,8 +10,6 @@ void main() {
 
 class AwnoaApp extends StatelessWidget {
   const AwnoaApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return DynamicColorBuilder(builder: (lightColorScheme, darkColorScheme) {
