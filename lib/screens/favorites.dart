@@ -1,23 +1,23 @@
 import 'package:awnoa/screens/shared/nav.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class UserFavoriteScreen extends StatefulWidget {
+  const UserFavoriteScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<UserFavoriteScreen> createState() => _UserFavoriteScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _UserFavoriteScreenState extends State<UserFavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AWNOA Species ID'),
+        title: const Text('Favorite Species'),
         automaticallyImplyLeading: false,
       ),
       body: const Center(
-        child: Text('Field guide for the mammals of Indonesia'),
+        child: Text('Favorites'),
       ),
       bottomNavigationBar: const AppNavigation(),
     );

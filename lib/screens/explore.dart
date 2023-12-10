@@ -1,3 +1,4 @@
+import 'package:awnoa/screens/shared/nav.dart';
 import 'package:awnoa/services/species_list.dart';
 import 'package:awnoa/services/types.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AWNOA Species ID'),
+        title: const Text('Explore Species'),
         actions: [
           IconButton(
             onPressed: () {
@@ -25,16 +26,21 @@ class _ExploreScreenState extends State<ExploreScreen> {
               });
             },
             icon: isListView
-                ? const Icon(Icons.list_alt_rounded)
-                : const Icon(Icons.grid_view_rounded),
+                ? const Icon(Icons.grid_view_rounded)
+                : const Icon(Icons.list_alt_rounded),
           ),
         ],
+        automaticallyImplyLeading: false,
       ),
       body: Center(
-        child: isListView
-            ? SpeciesListView(speciesList: fetchList())
-            : SpeciesGridView(speciesList: fetchList()),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
+          child: isListView
+              ? SpeciesListView(speciesList: fetchList())
+              : SpeciesGridView(speciesList: fetchList()),
+        ),
       ),
+      bottomNavigationBar: const AppNavigation(),
     );
   }
 
