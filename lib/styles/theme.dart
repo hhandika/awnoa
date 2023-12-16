@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class AwnoaTheme {
   static final _defaultLightColorScheme =
-      FlexColorScheme.light(scheme: FlexScheme.tealM3).colorScheme;
+      FlexColorScheme.light(scheme: FlexScheme.deepOrangeM3).colorScheme;
 
   static final _defaultDarkColorScheme =
-      FlexColorScheme.dark(scheme: FlexScheme.tealM3).colorScheme;
+      FlexColorScheme.dark(scheme: FlexScheme.deepOrangeM3).colorScheme;
 
   static ThemeData lightTheme(ColorScheme? lightColorScheme) {
     return ThemeData(

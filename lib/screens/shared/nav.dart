@@ -18,6 +18,7 @@ class AppNavigationState extends ConsumerState<AppNavigation> {
   Widget build(BuildContext context) {
     return NavigationBar(
       selectedIndex: ref.watch(navigationProvider),
+      indicatorColor: Theme.of(context).colorScheme.secondary.withAlpha(100),
       destinations: const [
         NavigationDestination(
           selectedIcon: Icon(Icons.home_rounded),
