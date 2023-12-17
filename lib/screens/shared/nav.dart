@@ -3,6 +3,7 @@ import 'package:awnoa/screens/explore.dart';
 import 'package:awnoa/screens/favorites.dart';
 import 'package:awnoa/screens/home.dart';
 import 'package:awnoa/screens/more_options.dart';
+import 'package:awnoa/services/system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,9 +17,13 @@ class AppNavigation extends ConsumerStatefulWidget {
 class AppNavigationState extends ConsumerState<AppNavigation> {
   @override
   Widget build(BuildContext context) {
+    bool isSmallScreen = getScreenType(context) == ScreenType.small;
     return NavigationBar(
       selectedIndex: ref.watch(navigationProvider),
       indicatorColor: Theme.of(context).colorScheme.secondary.withAlpha(100),
+      labelBehavior: isSmallScreen
+          ? NavigationDestinationLabelBehavior.alwaysHide
+          : NavigationDestinationLabelBehavior.alwaysShow,
       destinations: const [
         NavigationDestination(
           selectedIcon: Icon(Icons.home_rounded),
