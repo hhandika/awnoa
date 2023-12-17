@@ -17,7 +17,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Explore Species'),
+        title: const Text('Explore'),
         actions: [
           IconButton(
             onPressed: () {

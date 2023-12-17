@@ -13,7 +13,7 @@ class _UserFavoriteScreenState extends State<UserFavoriteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favorite Species'),
+        title: const Text('Favorites'),
         automaticallyImplyLeading: false,
       ),
       body: const Center(
