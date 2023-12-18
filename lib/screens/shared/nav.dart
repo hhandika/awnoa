@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:awnoa/screens/explore.dart';
 import 'package:awnoa/screens/favorites.dart';
 import 'package:awnoa/screens/home.dart';
 import 'package:awnoa/screens/more_options.dart';
-import 'package:flutter/material.dart';
+import 'package:awnoa/services/system.dart';
 
 const List<Widget> pages = <Widget>[
   HomeScreen(),
@@ -52,3 +53,35 @@ const List<NavigationProperties> navigationProperties = <NavigationProperties>[
     selectedIcon: Icon(Icons.menu_rounded),
   ),
 ];
+
+class AwnoaNavbar extends StatelessWidget {
+  const AwnoaNavbar({
+    super.key,
+    required this.screenType,
+    required this.selectedIndex,
+    required this.onNavigationSelected,
+  });
+
+  final ScreenType screenType;
+  final int selectedIndex;
+  final void Function(int) onNavigationSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    return NavigationBar(
+      selectedIndex: selectedIndex,
+      onDestinationSelected: onNavigationSelected,
+      labelBehavior: screenType == ScreenType.small
+          ? NavigationDestinationLabelBehavior.alwaysHide
+          : NavigationDestinationLabelBehavior.alwaysShow,
+      indicatorColor: Theme.of(context).colorScheme.secondary.withAlpha(120),
+      destinations: navigationProperties
+          .map((NavigationProperties nav) => NavigationDestination(
+                icon: nav.icon,
+                selectedIcon: nav.selectedIcon,
+                label: nav.label,
+              ))
+          .toList(),
+    );
+  }
+}

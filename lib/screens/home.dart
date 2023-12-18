@@ -23,25 +23,11 @@ class _AwnoaHomeState extends State<AwnoaHome> {
         body: SafeArea(
           child: Center(child: pages[_selectedIndex]),
         ),
-        bottomNavigationBar: NavigationBar(
+        bottomNavigationBar: AwnoaNavbar(
           selectedIndex: _selectedIndex,
-          onDestinationSelected: (int index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-          labelBehavior: screenType == ScreenType.small
-              ? NavigationDestinationLabelBehavior.alwaysHide
-              : NavigationDestinationLabelBehavior.alwaysShow,
-          indicatorColor:
-              Theme.of(context).colorScheme.secondary.withAlpha(120),
-          destinations: navigationProperties
-              .map((NavigationProperties nav) => NavigationDestination(
-                    icon: nav.icon,
-                    selectedIcon: nav.selectedIcon,
-                    label: nav.label,
-                  ))
-              .toList(),
+          onNavigationSelected: (index) =>
+              setState(() => _selectedIndex = index),
+          screenType: screenType,
         ));
   }
 
