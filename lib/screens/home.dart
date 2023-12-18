@@ -93,8 +93,8 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () {},
         ),
         HomeScreenTiles(
-          title: 'Quick Start',
-          icon: Icons.speed_outlined,
+          title: 'Contributing',
+          icon: Icons.people_outline,
           onTap: () {},
         ),
         HomeScreenTiles(
