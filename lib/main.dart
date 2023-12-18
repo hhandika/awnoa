@@ -19,7 +19,7 @@ class AwnoaApp extends StatelessWidget {
         theme: AwnoaTheme.lightTheme(lightColorScheme),
         darkTheme: AwnoaTheme.darkTheme(darkColorScheme),
         themeMode: ThemeMode.system,
-        home: const HomeScreen(),
+        home: const AwnoaHome(),
       );
     });
   }

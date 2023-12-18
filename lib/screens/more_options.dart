@@ -1,4 +1,3 @@
-import 'package:awnoa/screens/shared/nav.dart';
 import 'package:flutter/material.dart';
 
 class MoreScreen extends StatefulWidget {
@@ -11,15 +10,8 @@ class MoreScreen extends StatefulWidget {
 class _MoreScreenState extends State<MoreScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('More Options'),
-        automaticallyImplyLeading: false,
-      ),
-      body: const Center(
-        child: Text('More'),
-      ),
-      bottomNavigationBar: const AppNavigation(),
+    return const Center(
+      child: Text('More'),
     );
   }
 }

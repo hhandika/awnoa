@@ -1,4 +1,3 @@
-import 'package:awnoa/screens/shared/nav.dart';
 import 'package:awnoa/services/species_list.dart';
 import 'package:awnoa/services/types.dart';
 import 'package:flutter/material.dart';
@@ -15,32 +14,13 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Explore'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              setState(() {
-                isListView = !isListView;
-              });
-            },
-            icon: isListView
-                ? const Icon(Icons.grid_view_rounded)
-                : const Icon(Icons.list_alt_rounded),
-          ),
-        ],
-        automaticallyImplyLeading: false,
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
+        child: isListView
+            ? SpeciesListView(speciesList: fetchList())
+            : SpeciesGridView(speciesList: fetchList()),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
-          child: isListView
-              ? SpeciesListView(speciesList: fetchList())
-              : SpeciesGridView(speciesList: fetchList()),
-        ),
-      ),
-      bottomNavigationBar: const AppNavigation(),
     );
   }
 
@@ -62,11 +42,24 @@ class SpeciesListView extends StatelessWidget {
     return ListView.builder(
       itemCount: speciesList.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          // leading: Image.network(speciesList[index].imageUrl),
-          title: Text(speciesList[index].species,
-              style: Theme.of(context).textTheme.titleMedium),
-          subtitle: Text(speciesList[index].commonName),
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(8, 0.0, 8, 4.0),
+          child: ListTile(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8.0)),
+            ),
+            tileColor:
+                Theme.of(context).colorScheme.secondaryContainer.withAlpha(100),
+            leading: const Icon(Icons.image_outlined),
+            trailing: IconButton(
+              icon: const Icon(Icons.favorite_border_outlined),
+              onPressed: () {},
+            ),
+            title: Text(speciesList[index].species,
+                style: Theme.of(context).textTheme.titleMedium),
+            subtitle: Text(speciesList[index].commonName),
+            onTap: () {},
+          ),
         );
       },
     );

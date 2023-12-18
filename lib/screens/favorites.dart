@@ -1,4 +1,3 @@
-import 'package:awnoa/screens/shared/nav.dart';
 import 'package:flutter/material.dart';
 
 class UserFavoriteScreen extends StatefulWidget {
@@ -11,15 +10,8 @@ class UserFavoriteScreen extends StatefulWidget {
 class _UserFavoriteScreenState extends State<UserFavoriteScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Favorites'),
-        automaticallyImplyLeading: false,
-      ),
-      body: const Center(
-        child: Text('Favorites'),
-      ),
-      bottomNavigationBar: const AppNavigation(),
+    return const Center(
+      child: Text('Favorites'),
     );
   }
 }
