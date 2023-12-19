@@ -27,7 +27,7 @@ class _MoreScreenState extends State<MoreScreen> {
           const HeadingText(text: 'Settings'),
           SharedTiles(
             title: 'Appearance',
-            icon: Icons.settings,
+            icon: Icons.color_lens_outlined,
             onTap: () {},
           ),
           const SizedBox(height: 8),
