@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
             child: SizedBox(
-              height: 200,
+              height: 180,
               width: double.infinity,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -200,7 +200,7 @@ class PackContainer extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(0, 4, 16, 4),
         child: Container(
           padding: const EdgeInsets.all(16),
-          width: 200,
+          width: 180,
           height: 180,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
@@ -219,18 +219,20 @@ class PackContainer extends StatelessWidget {
             children: [
               Icon(
                 Icons.pest_control_rodent_outlined,
-                size: 56,
+                size: 40,
                 color: Theme.of(context).colorScheme.onSurface,
               ),
               const SizedBox(height: 4),
               Text(
                 'Pack Name',
-                style: Theme.of(context).textTheme.titleLarge,
+                style: Theme.of(context).textTheme.titleMedium,
+                overflow: TextOverflow.fade,
               ),
               const SizedBox(height: 4),
               Text(
                 'Pack Description',
                 style: Theme.of(context).textTheme.bodySmall,
+                overflow: TextOverflow.fade,
               ),
               const SizedBox(height: 4),
               IconButton(
