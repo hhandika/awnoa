@@ -1,4 +1,5 @@
-import 'package:awnoa/screens/shared/nav.dart';
+import 'package:awnoa/screens/shared/components.dart';
+import 'package:awnoa/screens/shared/navigation.dart';
 import 'package:awnoa/services/system.dart';
 import 'package:flutter/material.dart';
 
@@ -117,28 +118,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             )),
-        HomeScreenTiles(
+        SharedTiles(
           title: 'Explore Packs',
           icon: Icons.search_outlined,
           onTap: () {},
         ),
         const SizedBox(height: 16),
-        HomeScreenTiles(
+        SharedTiles(
           title: 'FAQ',
           icon: Icons.help_outline,
           onTap: () {},
         ),
-        HomeScreenTiles(
-          title: 'Documentation',
-          icon: Icons.description_outlined,
-          onTap: () {},
-        ),
-        HomeScreenTiles(
+        SharedTiles(
           title: 'Contributing',
           icon: Icons.people_outline,
           onTap: () {},
         ),
-        HomeScreenTiles(
+        SharedTiles(
           title: 'Donate now!',
           icon: Icons.attach_money_outlined,
           onTap: () {},
@@ -158,7 +154,7 @@ class WelcomeContainer extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(16),
           width: double.infinity,
-          height: 120,
+          height: 160,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             gradient: LinearGradient(
@@ -173,8 +169,8 @@ class WelcomeContainer extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 16),
               Text(
                 'Welcome!',
                 style: Theme.of(context).textTheme.headlineMedium,
@@ -186,40 +182,6 @@ class WelcomeContainer extends StatelessWidget {
               ),
             ],
           ),
-        ));
-  }
-}
-
-class HomeScreenTiles extends StatelessWidget {
-  const HomeScreenTiles({
-    super.key,
-    required this.title,
-    required this.icon,
-    required this.onTap,
-  });
-
-  final String title;
-  final IconData icon;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        child: ListTile(
-          tileColor:
-              Theme.of(context).colorScheme.secondaryContainer.withAlpha(140),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          leading: Icon(icon, color: Theme.of(context).colorScheme.onSurface),
-          title: Text(
-            title,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          trailing: Icon(Icons.arrow_forward_ios,
-              color: Theme.of(context).colorScheme.onSurface),
-          onTap: onTap,
         ));
   }
 }

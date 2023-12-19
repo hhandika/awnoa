@@ -16,7 +16,7 @@ const List<String> pageTitles = <String>[
   'AWNOA Species ID',
   'Explore',
   'Favorites',
-  'More',
+  'More Options',
 ];
 
 class NavigationProperties {
