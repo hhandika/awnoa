@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
             child: SizedBox(
-              height: 180,
+              height: 168,
               width: double.infinity,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -199,9 +199,8 @@ class PackContainer extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.fromLTRB(0, 4, 16, 4),
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(8, 16, 8, 0),
           width: 180,
-          height: 180,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             gradient: LinearGradient(
