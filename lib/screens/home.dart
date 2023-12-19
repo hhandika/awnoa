@@ -256,7 +256,7 @@ class PackContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Icon(
-                Icons.image_outlined,
+                Icons.pest_control_rodent_outlined,
                 size: 56,
                 color: Theme.of(context).colorScheme.onSurface,
               ),
