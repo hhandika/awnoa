@@ -68,10 +68,11 @@ class AwnoaNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isSmallScreen = screenType == ScreenType.small;
     return NavigationBar(
       selectedIndex: selectedIndex,
       onDestinationSelected: onNavigationSelected,
-      labelBehavior: screenType == ScreenType.small
+      labelBehavior: isSmallScreen
           ? NavigationDestinationLabelBehavior.alwaysHide
           : NavigationDestinationLabelBehavior.alwaysShow,
       indicatorColor: Theme.of(context).colorScheme.secondary.withAlpha(120),
@@ -80,6 +81,7 @@ class AwnoaNavbar extends StatelessWidget {
                 icon: nav.icon,
                 selectedIcon: nav.selectedIcon,
                 label: nav.label,
+                tooltip: isSmallScreen ? nav.label : null,
               ))
           .toList(),
     );

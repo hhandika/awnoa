@@ -35,7 +35,36 @@ class _AwnoaHomeState extends State<AwnoaHome> {
     if (_selectedIndex == 1 || _selectedIndex == 2) {
       return [
         IconButton(icon: const Icon(Icons.search_outlined), onPressed: () {}),
-        IconButton(icon: const Icon(Icons.tune_outlined), onPressed: () {}),
+        IconButton(
+            icon: Icon(Icons.adaptive.more_outlined),
+            onPressed: () {
+              showModalBottomSheet<void>(
+                context: context,
+                showDragHandle: true,
+                builder: (BuildContext context) {
+                  return SizedBox(
+                      height: 200,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: const Icon(Icons.list_alt_outlined),
+                              title: const Text('List View'),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              leading: const Icon(Icons.grid_view_outlined),
+                              title: const Text('Grid View'),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                      ));
+                },
+              );
+            }),
       ];
     } else {
       return [];
@@ -53,20 +82,41 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
+    return ListView(
+      shrinkWrap: true,
       children: [
         const WelcomeContainer(),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
-          child: Text(
-            'Installed Packs',
-            style: Theme.of(context).textTheme.titleMedium,
-            textAlign: TextAlign.left,
+          padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+          child: TextButton(
+            onPressed: () {},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'My Packs',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                Icon(Icons.arrow_forward_ios,
+                    color: Theme.of(context).colorScheme.onSurface),
+              ],
+            ),
           ),
         ),
+        Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+            child: SizedBox(
+              height: 200,
+              width: double.infinity,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return PackContainer(isSelected: index == 0);
+                },
+              ),
+            )),
         HomeScreenTiles(
           title: 'Explore Packs',
           icon: Icons.search_outlined,
@@ -79,13 +129,18 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () {},
         ),
         HomeScreenTiles(
+          title: 'Documentation',
+          icon: Icons.description_outlined,
+          onTap: () {},
+        ),
+        HomeScreenTiles(
           title: 'Contributing',
           icon: Icons.people_outline,
           onTap: () {},
         ),
         HomeScreenTiles(
-          title: 'Documentation',
-          icon: Icons.description_outlined,
+          title: 'Donate now!',
+          icon: Icons.attach_money_outlined,
           onTap: () {},
         ),
       ],
@@ -99,33 +154,35 @@ class WelcomeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
         child: Container(
           padding: const EdgeInsets.all(16),
+          width: double.infinity,
+          height: 120,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Theme.of(context).colorScheme.secondary,
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomRight,
+              colors: [
+                Theme.of(context).colorScheme.tertiaryContainer,
+                Theme.of(context).colorScheme.secondaryContainer,
+              ],
+            ),
+            color: Theme.of(context).colorScheme.primary,
           ),
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
                 'Welcome!',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 8),
               Text(
-                'Explore the species in your area,'
-                ' or search for a specific species.',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
+                'This is the home screen.',
+                style: Theme.of(context).textTheme.bodySmall,
               ),
             ],
           ),
@@ -163,6 +220,67 @@ class HomeScreenTiles extends StatelessWidget {
           trailing: Icon(Icons.arrow_forward_ios,
               color: Theme.of(context).colorScheme.onSurface),
           onTap: onTap,
+        ));
+  }
+}
+
+class PackContainer extends StatelessWidget {
+  const PackContainer({
+    super.key,
+    required this.isSelected,
+  });
+
+  final bool isSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          width: 220,
+          height: 220,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Theme.of(context).colorScheme.primaryContainer,
+                Theme.of(context).colorScheme.secondaryContainer,
+              ],
+            ),
+            color: Theme.of(context).colorScheme.secondaryContainer,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.image_outlined,
+                size: 56,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Pack Name',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Pack Description',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              const SizedBox(height: 4),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  isSelected
+                      ? Icons.check_circle_rounded
+                      : Icons.circle_outlined,
+                ),
+              ),
+            ],
+          ),
         ));
   }
 }
