@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:awnoa/screens/explore.dart';
-import 'package:awnoa/screens/favorites.dart';
-import 'package:awnoa/screens/home.dart';
-import 'package:awnoa/screens/more_options.dart';
+import 'package:awnoa/screens/explore/explore.dart';
+import 'package:awnoa/screens/favorites/favorites.dart';
+import 'package:awnoa/screens/home/home.dart';
+import 'package:awnoa/screens/more/more_options.dart';
 import 'package:awnoa/services/system.dart';
 
 const List<Widget> pages = <Widget>[

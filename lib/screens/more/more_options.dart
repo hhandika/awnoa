@@ -28,7 +28,9 @@ class _MoreScreenState extends State<MoreScreen> {
           SharedTiles(
             title: 'Appearance',
             icon: Icons.color_lens_outlined,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, '/appearance');
+            },
           ),
           const SizedBox(height: 8),
           const SharedDivider(),
