@@ -1,9 +1,11 @@
 import 'package:awnoa/providers/settings.dart';
 import 'package:awnoa/screens/home/home.dart';
+import 'package:awnoa/screens/more/components/settings.dart';
 import 'package:awnoa/styles/theme.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -20,8 +22,9 @@ class AwnoaApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return DynamicColorBuilder(builder: (lightColorScheme, darkColorScheme) {
-      return MaterialApp(
+      return MaterialApp.router(
         title: 'AWNOA Species ID',
+        routerConfig: _router,
         debugShowCheckedModeBanner: false,
         theme: AwnoaTheme.lightTheme(lightColorScheme),
         darkTheme: AwnoaTheme.darkTheme(darkColorScheme),
@@ -30,8 +33,22 @@ class AwnoaApp extends ConsumerWidget {
               loading: () => ThemeMode.system,
               error: (error, stackTrace) => ThemeMode.system,
             ),
-        home: const AwnoaHome(),
       );
     });
   }
 }
+
+final _router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const AwnoaHome(),
+      routes: [
+        GoRoute(
+          path: 'appearance',
+          builder: (context, state) => const AppearanceScreen(),
+        ),
+      ],
+    ),
+  ],
+);

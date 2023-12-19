@@ -8,7 +8,7 @@ import 'package:awnoa/services/system.dart';
 const List<Widget> pages = <Widget>[
   HomeScreen(),
   ExploreScreen(),
-  UserFavoriteScreen(),
+  FavoriteScreen(),
   MoreScreen(),
 ];
 

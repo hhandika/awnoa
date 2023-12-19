@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class UserFavoriteScreen extends StatefulWidget {
-  const UserFavoriteScreen({super.key});
+class FavoriteScreen extends StatefulWidget {
+  const FavoriteScreen({super.key});
 
   @override
-  State<UserFavoriteScreen> createState() => _UserFavoriteScreenState();
+  State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
-class _UserFavoriteScreenState extends State<UserFavoriteScreen> {
+class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return const Center(

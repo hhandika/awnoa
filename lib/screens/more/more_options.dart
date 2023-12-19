@@ -1,5 +1,6 @@
 import 'package:awnoa/screens/shared/components.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -29,7 +30,7 @@ class _MoreScreenState extends State<MoreScreen> {
             title: 'Appearance',
             icon: Icons.color_lens_outlined,
             onTap: () {
-              Navigator.pushNamed(context, '/appearance');
+              context.go('/appearance');
             },
           ),
           const SizedBox(height: 8),

@@ -29,14 +29,13 @@ class ThemeSetting extends _$ThemeSetting {
     return await _fetchSetting();
   }
 
-  Future<void> setTheme(String mode) async {
+  Future<void> setTheme(ThemeMode mode) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      String value = mode.toLowerCase();
       final prefs = ref.watch(settingProvider);
-      final themeMode = _matchThemeMode(value);
-      await prefs.setString('themeMode', value);
-      return themeMode;
+      final themeMode = _matchThemeModeToString(mode);
+      await prefs.setString('themeMode', themeMode);
+      return mode;
     });
   }
 
