@@ -235,11 +235,11 @@ class PackContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+        padding: const EdgeInsets.fromLTRB(0, 4, 16, 4),
         child: Container(
           padding: const EdgeInsets.all(16),
-          width: 220,
-          height: 220,
+          width: 200,
+          height: 180,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             gradient: LinearGradient(
