@@ -83,63 +83,66 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      children: [
-        const WelcomeContainer(),
-        const SizedBox(height: 8),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
-          child: TextButton(
-            onPressed: () {},
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'My Packs',
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                Icon(Icons.arrow_forward_ios,
-                    color: Theme.of(context).colorScheme.onSurface),
-              ],
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 500),
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          const WelcomeContainer(),
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+            child: TextButton(
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'My Packs',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  Icon(Icons.arrow_forward_ios,
+                      color: Theme.of(context).colorScheme.onSurface),
+                ],
+              ),
             ),
           ),
-        ),
-        Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-            child: SizedBox(
-              height: 168,
-              width: double.infinity,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return PackContainer(isSelected: index == 0);
-                },
-              ),
-            )),
-        SharedTiles(
-          title: 'Explore Packs',
-          icon: Icons.search_outlined,
-          onTap: () {},
-        ),
-        const SizedBox(height: 16),
-        SharedTiles(
-          title: 'FAQ',
-          icon: Icons.help_outline,
-          onTap: () {},
-        ),
-        SharedTiles(
-          title: 'Contributing',
-          icon: Icons.people_outline,
-          onTap: () {},
-        ),
-        SharedTiles(
-          title: 'Donate now!',
-          icon: Icons.attach_money_outlined,
-          onTap: () {},
-        ),
-      ],
+          Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+              child: SizedBox(
+                height: 168,
+                width: double.infinity,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return PackContainer(isSelected: index == 0);
+                  },
+                ),
+              )),
+          SharedTiles(
+            title: 'Explore Packs',
+            icon: Icons.search_outlined,
+            onTap: () {},
+          ),
+          const SizedBox(height: 16),
+          SharedTiles(
+            title: 'FAQ',
+            icon: Icons.help_outline,
+            onTap: () {},
+          ),
+          SharedTiles(
+            title: 'Contributing',
+            icon: Icons.people_outline,
+            onTap: () {},
+          ),
+          SharedTiles(
+            title: 'Donate now!',
+            icon: Icons.attach_money_outlined,
+            onTap: () {},
+          ),
+        ],
+      ),
     );
   }
 }
