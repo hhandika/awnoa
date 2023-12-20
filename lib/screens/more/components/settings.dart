@@ -19,35 +19,26 @@ class AppearanceScreenState extends ConsumerState<AppearanceScreen> {
       body: ref.watch(themeSettingProvider).when(
             data: (theme) => ListView(
               children: [
-                ListTile(
-                  title: const Text('Light'),
-                  leading: Radio<ThemeMode>(
-                    value: ThemeMode.light,
-                    groupValue: theme,
-                    onChanged: (value) => ref
-                        .read(themeSettingProvider.notifier)
-                        .setTheme(value!),
-                  ),
+                SettingRadioTile(
+                  value: ThemeMode.light,
+                  title: 'Light',
+                  groupValue: theme,
+                  onChanged: (value) =>
+                      ref.read(themeSettingProvider.notifier).setTheme(value!),
                 ),
-                ListTile(
-                  title: const Text('Dark'),
-                  leading: Radio<ThemeMode>(
-                    value: ThemeMode.dark,
-                    groupValue: theme,
-                    onChanged: (value) => ref
-                        .read(themeSettingProvider.notifier)
-                        .setTheme(value!),
-                  ),
+                SettingRadioTile(
+                  value: ThemeMode.dark,
+                  title: 'Dark',
+                  groupValue: theme,
+                  onChanged: (value) =>
+                      ref.read(themeSettingProvider.notifier).setTheme(value!),
                 ),
-                ListTile(
-                  title: const Text('System'),
-                  leading: Radio<ThemeMode>(
-                    value: ThemeMode.system,
-                    groupValue: theme,
-                    onChanged: (value) => ref
-                        .read(themeSettingProvider.notifier)
-                        .setTheme(value!),
-                  ),
+                SettingRadioTile(
+                  value: ThemeMode.system,
+                  title: 'System',
+                  groupValue: theme,
+                  onChanged: (value) =>
+                      ref.read(themeSettingProvider.notifier).setTheme(value!),
                 ),
               ],
             ),
@@ -55,5 +46,37 @@ class AppearanceScreenState extends ConsumerState<AppearanceScreen> {
             error: (error, stackTrace) => Center(child: Text(error.toString())),
           ),
     );
+  }
+}
+
+class SettingRadioTile extends StatelessWidget {
+  const SettingRadioTile({
+    super.key,
+    required this.value,
+    required this.groupValue,
+    required this.onChanged,
+    required this.title,
+  });
+
+  final ThemeMode value;
+  final ThemeMode groupValue;
+  final void Function(ThemeMode?) onChanged;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(2),
+        child: RadioListTile(
+          value: value,
+          title: Text(title),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          tileColor:
+              Theme.of(context).colorScheme.secondaryContainer.withAlpha(100),
+          groupValue: groupValue,
+          onChanged: onChanged,
+        ));
   }
 }
