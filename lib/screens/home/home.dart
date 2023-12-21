@@ -1,3 +1,5 @@
+import 'package:awnoa/screens/home/components/packs.dart';
+import 'package:awnoa/screens/home/components/welcome.dart';
 import 'package:awnoa/screens/shared/components.dart';
 import 'package:awnoa/screens/shared/navigation.dart';
 import 'package:awnoa/services/system.dart';
@@ -91,20 +93,19 @@ class _HomeScreenState extends State<HomeScreen> {
           const WelcomeContainer(),
           const SizedBox(height: 8),
           Padding(
-            padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
-            child: TextButton(
-              onPressed: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'My Packs',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  Icon(Icons.arrow_forward_ios,
-                      color: Theme.of(context).colorScheme.onSurface),
-                ],
-              ),
+            padding: const EdgeInsets.fromLTRB(16, 0, 12, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'My Packs',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text('View all'),
+                ),
+              ],
             ),
           ),
           Padding(
@@ -132,121 +133,17 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: () {},
           ),
           SharedTiles(
-            title: 'Contributing',
+            title: 'Contribute',
             icon: Icons.people_outline,
             onTap: () {},
           ),
           SharedTiles(
-            title: 'Donate now!',
+            title: 'Donate',
             icon: Icons.attach_money_outlined,
             onTap: () {},
           ),
         ],
       ),
     );
-  }
-}
-
-class WelcomeContainer extends StatelessWidget {
-  const WelcomeContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          width: double.infinity,
-          height: 160,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomRight,
-              colors: [
-                Theme.of(context).colorScheme.tertiaryContainer,
-                Theme.of(context).colorScheme.secondaryContainer,
-              ],
-            ),
-            color: Theme.of(context).colorScheme.primary,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Welcome!',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'This is the home screen.',
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-            ],
-          ),
-        ));
-  }
-}
-
-class PackContainer extends StatelessWidget {
-  const PackContainer({
-    super.key,
-    required this.isSelected,
-  });
-
-  final bool isSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.fromLTRB(0, 4, 16, 4),
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(8, 16, 8, 0),
-          width: 180,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Theme.of(context).colorScheme.primaryContainer,
-                Theme.of(context).colorScheme.secondaryContainer,
-              ],
-            ),
-            color: Theme.of(context).colorScheme.secondaryContainer,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.pest_control_rodent_outlined,
-                size: 40,
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Pack Name',
-                style: Theme.of(context).textTheme.titleMedium,
-                overflow: TextOverflow.fade,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Pack Description',
-                style: Theme.of(context).textTheme.bodySmall,
-                overflow: TextOverflow.fade,
-              ),
-              const SizedBox(height: 4),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  isSelected
-                      ? Icons.check_circle_rounded
-                      : Icons.circle_outlined,
-                ),
-              ),
-            ],
-          ),
-        ));
   }
 }

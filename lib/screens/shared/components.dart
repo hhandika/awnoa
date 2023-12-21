@@ -18,11 +18,21 @@ class SharedTiles extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         child: ListTile(
           tileColor:
-              Theme.of(context).colorScheme.secondaryContainer.withAlpha(120),
+              Theme.of(context).colorScheme.secondaryContainer.withAlpha(100),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
+            side: BorderSide(
+              color: Theme.of(context)
+                  .colorScheme
+                  .secondaryContainer
+                  .withAlpha(60),
+              width: 1,
+            ),
           ),
-          leading: Icon(icon, color: Theme.of(context).colorScheme.onSurface),
+          leading: Icon(
+            icon,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
           title: Text(
             title,
             style: Theme.of(context).textTheme.titleMedium,
