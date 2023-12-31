@@ -35,7 +35,7 @@ mv_dmg() {
         rm $DMG_PATH
     fi
     # Move DMG to output directory
-    if [ -f "installer/nahpu.dmg" ]; then
+    if [ -f "installer/awnoa.dmg" ]; then
         echo "Moving DMG to $OUTPUT_DIR"
         mv installer/nahpu.dmg $DMG_PATH
     fi

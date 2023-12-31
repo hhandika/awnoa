@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONFIG=config.json
-OUTPUT=nahpu.dmg
+OUTPUT=awnoa.dmg
 cd installer/
 if [ -f $OUTPUT ]; then
     rm $OUTPUT
