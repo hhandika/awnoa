@@ -4,7 +4,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "AWNOA",
-  tagline: "An app for the world's flora and fauna. Well, that's the goal. :)",
+  tagline:
+    "An app for identification of world's flora and fauna. Well, that's the goal! 😁",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -56,7 +57,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    // image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "AWNOA",
       logo: {
