@@ -14,8 +14,9 @@ const FeatureList: FeatureItem[] = [
     Svg: require("@site/static/img/scientistAndHobbyist.svg").default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        AWNOA is a comprehensive field guide designed to help both beginners and
+        experts to identify wildlife. It is available in multiple languages and
+        can be used by scientists and wildlife enthusiasts.
       </>
     ),
   },
@@ -24,18 +25,21 @@ const FeatureList: FeatureItem[] = [
     Svg: require("@site/static/img/collaborative.svg").default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        We develop AWNOA to improve participation of local experts in developing
+        field guides. Public contributions are welcome and encouraged to help us
+        achieve our goal of making AWNOA the most comprehensive field guide for
+        wildlife.
       </>
     ),
   },
   {
-    title: "Modular and Free",
+    title: "Free, Open-Source, and Modular",
     Svg: require("@site/static/img/modular.svg").default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        AWNOA is open-source and free to use. Its modular design allows
+        contributors to work independently in producing field guides for their
+        region.
       </>
     ),
   },
