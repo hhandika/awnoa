@@ -67,7 +67,7 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "docSidebar",
+          sidebarId: "learnSidebar",
           position: "left",
           label: "Docs",
         },
@@ -75,7 +75,7 @@ const config: Config = {
         //   type: "localeDropdown",
         //   position: "right",
         // },
-        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/blog", label: "News", position: "left" },
         {
           href: "https://github.com/hhandika/awnoa",
           label: "GitHub",
