@@ -23,7 +23,7 @@ class AwnoaApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return DynamicColorBuilder(builder: (lightColorScheme, darkColorScheme) {
       return MaterialApp.router(
-        title: 'AWNOA Species ID',
+        title: 'RINJA Species ID',
         routerConfig: _router,
         debugShowCheckedModeBanner: false,
         theme: AwnoaTheme.lightTheme(lightColorScheme),

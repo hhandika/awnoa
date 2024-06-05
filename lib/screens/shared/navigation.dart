@@ -13,7 +13,7 @@ const List<Widget> pages = <Widget>[
 ];
 
 const List<String> pageTitles = <String>[
-  'AWNOA Species ID',
+  'RINJA Species ID',
   'Explore',
   'Favorites',
   'More Options',

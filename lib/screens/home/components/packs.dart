@@ -1,11 +1,14 @@
+import 'package:awnoa/services/packs.dart';
 import 'package:flutter/material.dart';
 
 class PackContainer extends StatelessWidget {
   const PackContainer({
     super.key,
+    required this.pack,
     required this.isSelected,
   });
 
+  final GuidePacks pack;
   final bool isSelected;
 
   @override
@@ -14,7 +17,7 @@ class PackContainer extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(0, 4, 16, 4),
         child: Container(
           padding: const EdgeInsets.fromLTRB(8, 16, 8, 0),
-          width: 180,
+          width: 240,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             gradient: LinearGradient(
@@ -40,15 +43,15 @@ class PackContainer extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
-                'Pack Name',
+                pack.name,
                 style: Theme.of(context).textTheme.titleMedium,
-                overflow: TextOverflow.fade,
+                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 4),
               Text(
-                'Pack Description',
+                pack.description,
                 style: Theme.of(context).textTheme.bodySmall,
-                overflow: TextOverflow.fade,
+                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 4),
               IconButton(

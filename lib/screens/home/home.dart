@@ -2,6 +2,7 @@ import 'package:awnoa/screens/home/components/packs.dart';
 import 'package:awnoa/screens/home/components/welcome.dart';
 import 'package:awnoa/screens/shared/components.dart';
 import 'package:awnoa/screens/shared/navigation.dart';
+import 'package:awnoa/services/packs.dart';
 import 'package:awnoa/services/system.dart';
 import 'package:flutter/material.dart';
 
@@ -108,19 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-              child: SizedBox(
-                height: 168,
-                width: double.infinity,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return PackContainer(isSelected: index == 0);
-                  },
-                ),
-              )),
+          const Packs(
+            packs: dummyPackList,
+          ),
           SharedTiles(
             title: 'Explore Packs',
             icon: Icons.search_outlined,
@@ -145,5 +136,28 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+}
+
+class Packs extends StatelessWidget {
+  const Packs({super.key, required this.packs});
+
+  final List<GuidePacks> packs;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+        child: SizedBox(
+          height: 168,
+          width: double.infinity,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: packs.length,
+            itemBuilder: (context, index) {
+              return PackContainer(isSelected: index == 0, pack: packs[index]);
+            },
+          ),
+        ));
   }
 }
