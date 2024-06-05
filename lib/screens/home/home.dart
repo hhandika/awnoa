@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
           const Packs(
             packs: dummyPackList,
           ),
-          SharedTiles(
+          MainSharedTiles(
             title: 'Explore Packs',
             icon: Icons.search_outlined,
             onTap: () {},

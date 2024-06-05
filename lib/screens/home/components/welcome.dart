@@ -1,3 +1,4 @@
+import 'package:awnoa/services/packs.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeContainer extends StatelessWidget {
@@ -54,7 +55,7 @@ class WelcomeContainer extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     Text(
-                      '1',
+                      dummyPackList.length.toString(),
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ],
